@@ -1,0 +1,3 @@
+[submodule "waybar/modules/caway"]
+	path = waybar/modules/caway
+	url = https://github.com/PROxZIMA/caway
