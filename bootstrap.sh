@@ -29,4 +29,5 @@ link "$PWD/kitty/" "$HOME/.config"
 link "$PWD/wofi/" "$HOME/.config"
 link "$PWD/nvim/" "$HOME/.config"
 link "$PWD/dunst/" "$HOME/.config"
+link "$PWD/swaylock/swaylock/" "$HOME/.config"
 
