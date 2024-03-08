@@ -9,4 +9,5 @@ ln -s "$PWD/pipes-rs/" "$HOME/.config/"
 ln -s "$PWD/gtk-3.0/" "$HOME/.config/"
 ln -s "$PWD/cava/" "$HOME/.config/"
 ln -s "$PWD/kitty/" "$HOME/.config/"
+ln -s "$PWD/wofi/" "$HOME/.config"
 
