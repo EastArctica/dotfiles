@@ -1,0 +1,41 @@
+# /bin/bash
+command_name=$1
+
+# tty-clock 491,211
+
+start() {
+    notify-send "Starting Screensaver"
+    hyprctl dispatch workspace 99
+    sleep 1
+    kitty cbonsai -l -i -w 2 -M 2 -L 22 &
+    echo $! > /tmp/CBONSAI_PID
+    kitty pipes-rs &
+    echo $! > /tmp/PIPES_PID
+    kitty tty-clock -sct &
+    echo $! > /tmp/TTY_CLOCK_PID
+    cava &
+    echo $! > /tmp/CAVA_PID
+}
+
+end() {
+    notify-send "Ending Screensaver" 
+    # We should always be here but I'd rather not risk killing real workspaces
+    # hyprctl dispatch workspace 99
+    kill $(cat /tmp/CBONSAI_PID)
+    kill $(cat /tmp/PIPES_PID)
+    kill $(cat /tmp/TTY_CLOCK_PID)
+    kill $(cat /tmp/CAVA_PID)
+    hyprctl dispatch workspace 1
+}
+
+case "$1" in
+"start")
+    start
+    ;;
+"end")
+    end
+    ;;
+*)
+    echo "Supplied command is not valid."
+    ;;
+esac
