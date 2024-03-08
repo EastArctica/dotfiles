@@ -27,4 +27,6 @@ link "$PWD/gtk-3.0/" "$HOME/.config"
 link "$PWD/cava/" "$HOME/.config"
 link "$PWD/kitty/" "$HOME/.config"
 link "$PWD/wofi/" "$HOME/.config"
+link "$PWD/nvim/" "$HOME/.config"
+link "$PWD/dunst/" "$HOME/.config"
 

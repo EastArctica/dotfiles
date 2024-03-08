@@ -1,3 +1,9 @@
 [submodule "waybar/modules/caway"]
 	path = waybar/modules/caway
 	url = https://github.com/PROxZIMA/caway
+[submodule "dunst"]
+	path = dunst
+	url = https://github.com/dracula/dunst
+[submodule "swaylock"]
+	path = swaylock
+	url = https://github.com/dracula/swaylock
