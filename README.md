@@ -4,4 +4,5 @@ Hi everyone! This is basic enough dotfiles setup. Mostly just misc things I pref
 
 ## To Do
 - [ ] Implement patching system for submodules. (ex. swaylock config)
+- [ ] Implement basic package installation options. (ex. cliphist, wofi, wl-clipboard)
 
