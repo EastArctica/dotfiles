@@ -16,6 +16,14 @@ link() {
 	fi
 }
 
+install_package() {
+	local package=$1
+	if [ "$(pacman -Qq "$1" 2> /dev/null)" = $package ]; then
+		echo "Already installed $package"
+	else
+		sudo pacman --needed --noconfirm -S $package
+	fi
+}
 
 link "$PWD/.gitconfig" "$HOME"
 link "$PWD/.gtkrc-2.0" "$HOME"
@@ -32,7 +40,8 @@ link "$PWD/dunst/" "$HOME/.config"
 link "$PWD/swaylock/swaylock/" "$HOME/.config"
 
 # NeoVim
-paru --needed -S neovim-nvim-treesitter
+install_package neovim
+install_package neovim-nvim-treesitter
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 link "$PWD/nvim/" "$HOME/.config"
