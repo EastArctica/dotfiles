@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "cava"],
     "modules-center": ["clock", "custom/weather"], // ["clock"],
-    "modules-right": ["bluetooth", "pulseaudio#source", "pulseaudio#output", "network", "cpu", "memory", "battery", "temperature", "tray"],
+    "modules-right": ["bluetooth", "pulseaudio#source", "pulseaudio#output", "network", "cpu", "memory", "battery", "temperature", "backlight", "tray"],
     // Modules configuration/
     "custom/weather": {
 	"format": "{} °",
