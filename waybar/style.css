@@ -38,5 +38,9 @@ box#tray {
 }
 
 #custom-music.Playing {
-	color: cyan
+	color: cyan;
+}
+
+#custom-package_updates.none {
+	opacity: 0;
 }

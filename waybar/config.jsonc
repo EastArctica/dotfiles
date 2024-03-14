@@ -5,10 +5,16 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "cava"],
+    "modules-left": ["hyprland/workspaces", "custom/package_updates"],
     "modules-center": ["clock", "custom/weather"], // ["clock"],
     "modules-right": ["bluetooth", "pulseaudio#source", "pulseaudio#output", "network", "cpu", "memory", "battery", "temperature", "backlight", "tray"],
-    // Modules configuration/
+    // Modules configuration
+    "custom/package_updates": {
+        "format": "{}",
+	"return-type": "json",
+        "interval": 1800,
+        "exec": "~/.config/waybar/modules/package-updates.sh"
+    },
     "custom/weather": {
 	"format": "{} °",
     	"tooltip": true,
