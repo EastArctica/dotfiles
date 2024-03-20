@@ -2,6 +2,22 @@
 
 target_workspace=$1
 
+# Find discord names, discord -> discord-canary -> discord-ptb
+discord_bin=""
+
+if command -v discord; then
+	discord_bin="discord"
+elif command -v discord-canary; then
+	discord_bin="discord-canary"
+elif command -v discord-ptb; then
+	discord_bin="discord-ptb"
+fi
+
+if [ "$discord_bin" = "" ]; then
+	echo "Discord is not installed."
+	exit 1
+fi
+
 moveToWorkspace() {
 	target_address=$1
 	workspace=$2
@@ -18,17 +34,17 @@ handle() {
 			address=$(echo "$1" | cut -d',' -f1 | cut -d'>' -f3)
 			class=$(echo "$1" | cut -d',' -f3)
 			title=$(echo "$1" | cut -d',' -f4)
-			if [ "$title" = "Discord" ] || [ "$title" = "Discord Updater" ]; then
+			if [ "$class" = "discord" ] || [ "$title" = "Discord Updater" ]; then
 				moveToWorkspace "0x$address" "$target_workspace"
 			fi
 
-			if [ "$title" = "Discord" ]; then
+			if [ "$title" = "$discord_title" ]; then
 				exit 0
 			fi
 		};;
 	esac
 }
 
-2>/dev/null 1>&2 discord &
+2>/dev/null 1>&2 $discord_bin &
 socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
 
