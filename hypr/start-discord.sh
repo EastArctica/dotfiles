@@ -45,6 +45,6 @@ handle() {
 	esac
 }
 
-2>/dev/null 1>&2 $discord_bin &
+2>/dev/null 1>&2 $discord_bin --enable-features=UseOzonePlatform --ozone-platform=wayland &
 socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
 
