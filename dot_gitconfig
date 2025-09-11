@@ -1,8 +1,15 @@
 [user]
+	name = East Arctica
 	email = eastarctica@gmail.com
 	name = EastArctica
+[core]
+	editor = nvim
 [http]
 	sslVerify = true
-
 [init]
 	defaultBranch = main
+[core]
+	autocrlf = true
+[checkout]
+	defaultRemote = origin
+
