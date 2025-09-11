@@ -1,0 +1,6 @@
+[user]
+	email = eastarctica@gmail.com
+	name = EastArctica
+[http]
+	sslVerify = true
+
